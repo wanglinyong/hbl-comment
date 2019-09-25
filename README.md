@@ -17,7 +17,7 @@
 
 ## 二、使用
 
-### 1、使用下面命令下载vue-comment组件
+### 1、使用下面命令下载hbl-comment组件
 
 	npm i hbl-comment
 
