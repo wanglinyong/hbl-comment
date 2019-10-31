@@ -1,6 +1,6 @@
 {
   "name": "hbl-comment",
-  "version": "1.1.2",
+  "version": "1.2.3",
   "description": "评论回复组件",
   "author": "hbl",
   "main": "dist/comment.js",

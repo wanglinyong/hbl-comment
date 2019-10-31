@@ -15,7 +15,7 @@
 				</el-input>
 
 				 <div v-if="buttonMap[0]" class="hbl-owo">
-					 	<div :class="pBodyMap[0]?'OwO':'OwO OwO-open'" class="emoj publish">
+					 	<div :class="pBodyMap[0]?'OwO':'OwO OwO-open'" class="emoj publish" :style="{width:emojiWidth}">
 		                    <div class="OwO-logo" @click="pBodyStatus(0)">
 		                        <span>Emoji表情</span>
 		                    </div>
@@ -89,7 +89,7 @@
 												</el-input>
 
 												 <div v-if="buttonMap[item.id]" class="hbl-owo">
-													 	<div :class="pBodyMap[item.id]?'OwO':'OwO OwO-open'" class="emoj publish">
+													 	<div :class="pBodyMap[item.id]?'OwO':'OwO OwO-open'" class="emoj publish" :style="{width:emojiWidth}">
 										                    <div class="OwO-logo" @click="pBodyStatus(item.id)">
 										                        <span>Emoji表情</span>
 										                    </div>
@@ -163,7 +163,7 @@
 												</el-input>
 
 												 <div v-if="buttonMap[ritem.id]" class="hbl-owo">
-													 	<div :class="pBodyMap[ritem.id]?'OwO':'OwO OwO-open'" class="emoj publish">
+													 	<div :class="pBodyMap[ritem.id]?'OwO':'OwO OwO-open'" class="emoj publish" :style="{width:emojiWidth}">
 										                    <div class="OwO-logo" @click="pBodyStatus(ritem.id)">
 										                        <span>Emoji表情</span>
 										                    </div>
@@ -201,6 +201,10 @@
 	import avatar from './Avatar.vue'
 	export default {
 	  props:{
+	  	emojiWidth:{
+	  		type:String,
+	  		default:'560px'
+	  	},
 	  	showAvatar:{
 	  		type:Boolean,
 	  		default:true
@@ -378,9 +382,11 @@
 	          doSend(){
 	          	//console.log("====="+this.textarea);
 	          	this.$emit("doSend",this.textareaMap[0]);
+	          	this.$set(this.textareaMap,0,'')
 	          },
 	          doChidSend(index,commentUserId,pid){
 	          	this.$emit("doChidSend",this.textareaMap[index],commentUserId,pid);
+          		this.$set(this.textareaMap,index,'')
 	          },
 	       
 	          //选择表情包
@@ -447,7 +453,7 @@
 		vertical-align:top;
 	}
 	.emoj{
-		width: 560px;
+		/*width: 560px;*/
 	}
 	.publish{
 		margin-top: 10px;
